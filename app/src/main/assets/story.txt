@@ -1,0 +1,69 @@
+:introduction
+ - You see 2 doors
+ - One is red, the other is blue
+ -
+ - DECIDE!
+ | The red door [redDoor]
+ | The blue door [blueDoor]
+;
+
+:redDoor
+ - You walk in
+ -
+ - You see a white rabbit in the middle of the room on a table facing away from you
+ -
+ - What do you do?
+ | Pet it [deathByRabbit]
+ | Turn and slowly leave the room [originalRoom2]
+;
+
+:deathByRabbit
+ - It suddenly jumps up and mauls you to death
+ -
+ - THE END
+;
+
+:blueDoor
+ - You walk in cautiously, noting the very nice shade of blue on the outside
+ -
+ - Inside is a field...
+ - You hear a roaring sound somewhere to your left...
+ | Run like hell to the right [deathByDragon]
+ | Turn to the left to fight whatever is challenging you [dragonTamer]
+ | Calmly walk back through the door [originalRoom2]
+;
+
+:deathByDragon
+ - You get 7 paces before a dragon drops out of the sky and makes a meal of you
+ -
+ - THE END
+;
+
+:originalRoom2
+ - You notice a 3rd door, a green one
+ - You also realise you have to pick a door or stay and starve
+ -
+ - DECIDE!
+ | The red door [redDoor]
+ | The blue door [blueDoor]
+ | The green door that wasn't there before... [greenDoor]
+;
+
+:greenDoor
+ - The door fails to open, some joker has obviously painted it while you were in the other room...
+ -
+ - DECIDE!
+ | The red door [redDoor]
+ | The blue door [blueDoor]
+
+;
+
+// the only one where the player wins
+:dragonTamer
+ - You notice the very large roaring comes from a very small dragon
+ - You decide it is cute and adopt it, naming it Felix
+ -
+ - It helps you vanquish your enemies and you live happily ever after
+ -
+ - THE END
+;

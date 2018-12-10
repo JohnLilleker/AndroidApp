@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Story</string>
+    <string name="startButton">Begin</string>
+    <string name="endButton">Go back to start</string>
+</resources>
