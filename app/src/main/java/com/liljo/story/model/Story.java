@@ -1,14 +1,13 @@
 package com.liljo.story.model;
 
-import android.util.Log;
-
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Story {
 
     private Map<String, Scene> scenes;
-    private static final String TAG = "com.liljo...Story";
 
     public Story() {
         this.scenes = new HashMap<>();
@@ -19,10 +18,10 @@ public class Story {
     }
 
     public Scene getScene(String sceneHandle) {
-        if (!scenes.containsKey(sceneHandle)) {
-            Log.e(TAG, "Scene " + sceneHandle + " not in story");
-        }
         return scenes.get(sceneHandle);
     }
 
+    public List<String> scenes() {
+        return new LinkedList<>(scenes.keySet());
+    }
 }

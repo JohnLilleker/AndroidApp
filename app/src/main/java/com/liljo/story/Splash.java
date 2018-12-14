@@ -14,8 +14,7 @@ public class Splash extends AppCompatActivity {
     }
 
     public void onStart(View view) {
-        final Intent intent = new Intent(this, StoryActivity.class);
-        intent.putExtra(StoryActivity.FILE_NAME, "story.txt");
+        final Intent intent = new Intent(this, ContentsActivity.class);
         startActivity(intent);
     }
 }

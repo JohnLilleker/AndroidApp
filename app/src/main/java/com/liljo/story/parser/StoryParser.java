@@ -1,7 +1,6 @@
 package com.liljo.story.parser;
 
-import android.util.Log;
-
+import com.liljo.story.exception.StoryParseException;
 import com.liljo.story.model.Option;
 import com.liljo.story.model.Scene;
 import com.liljo.story.model.Story;
@@ -11,10 +10,9 @@ import java.util.regex.Pattern;
 
 public class StoryParser {
 
-    private static final String TAG = "com.liljo...StoryParser";
-
     private static final String SENTENCE_GROUP = "(\\S(?:.*\\S)?)";
-    private static final String SCENE_GROUP = "(\\w[\\w\\-.]*)";
+    private static final String SCENE_GROUP = "([\\w\\-.]+)";
+    private static final String LINE_DELIMITER = "\\r\\n|\\n|\\r";
 
     private static final Pattern OPTION_REGEX = Pattern.compile("\\s*\\|\\s*" + SENTENCE_GROUP + "\\s*\\[" + SCENE_GROUP + "]\\s*");
     private static final Pattern DISPLAY_REGEX = Pattern.compile("\\s*-\\s*" + SENTENCE_GROUP + "?\\s*");
@@ -23,10 +21,10 @@ public class StoryParser {
     private static final Pattern COMMENT_REGEX = Pattern.compile("\\s*//.*");
     private static final Pattern EMPTY_REGEX = Pattern.compile("\\s*");
 
-    public Story parse(String storyString) {
+    public Story parse(String storyString) throws StoryParseException {
         final Story story = new Story();
 
-        final String[] lines = storyString.split("\\r\\n|\\n|\\r");
+        final String[] lines = storyString.split(LINE_DELIMITER);
 
         String tag = null;
         Scene scene = null;
@@ -76,7 +74,7 @@ public class StoryParser {
                 continue;
             }
 
-            throwError("Unknown line format:" + line + ": line " + lineNo);
+            throwError("Unknown line format \"" + line + "\": line " + lineNo);
         }
 
         if (isReadingScene(scene)) {
@@ -86,9 +84,8 @@ public class StoryParser {
         return story;
     }
 
-    private void throwError(String error) {
-        Log.e(TAG, error);
-        throw new IllegalStateException(error);
+    private void throwError(String error) throws StoryParseException {
+        throw new StoryParseException(error);
     }
 
     private boolean isReadingScene(Scene scene) {

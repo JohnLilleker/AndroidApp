@@ -17,12 +17,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".StoryActivity"
-            android:parentActivityName=".Splash">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <activity
+            android:name=".StoryActivity"
+            android:parentActivityName=".ContentsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Splash" /></activity>
+                android:value=".ContentsActivity" />
+        </activity>
+
+        <activity android:name=".ContentsActivity">
+            android:parentActivityName=".Splash">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Splash" />
+        </activity>
     </application>
 
 </manifest>

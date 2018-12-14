@@ -1,7 +1,6 @@
 package com.liljo.story;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +10,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.liljo.story.exception.StoryParseException;
+import com.liljo.story.exception.StoryRunException;
 import com.liljo.story.model.Option;
 import com.liljo.story.model.Story;
 import com.liljo.story.parser.StoryParser;
@@ -24,7 +25,7 @@ import java.util.Scanner;
 public class StoryActivity extends AppCompatActivity {
 
     private final String TAG = "com.....StoryActivity";
-    public static final String FILE_NAME = "com.liljo.story.FILE_NAME";
+    protected static final String FILE_NAME = "com.liljo.story.FILE_NAME";
 
     private StoryRunner storyRunner;
 
@@ -33,17 +34,27 @@ public class StoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story);
 
-        final String fileName = getIntent().getStringExtra(FILE_NAME);
+        try {
+            final String fileName = getIntent().getStringExtra(FILE_NAME);
 
-        final StoryParser storyParser = new StoryParser();
-        final Story story = storyParser.parse(readFileToString(fileName));
-        storyRunner = new StoryRunner(story);
-        buildUI();
+            final StoryParser storyParser = new StoryParser();
+            final Story story = storyParser.parse(readFileToString(fileName));
+            storyRunner = new StoryRunner(story);
+            buildUI();
+        } catch (StoryParseException | StoryRunException ex) {
+            Log.e(TAG, ex.getMessage());
+            throw new IllegalStateException(ex);
+        }
     }
 
     public void onOptionClick(View view) {
         final String sceneTag = (String) view.getTag();
-        storyRunner.transitionScene(sceneTag);
+        try {
+            storyRunner.transitionScene(sceneTag);
+        } catch (StoryRunException ex) {
+            Log.e(TAG, ex.getMessage());
+            throw new IllegalStateException(ex);
+        }
         buildUI();
     }
 
@@ -63,8 +74,7 @@ public class StoryActivity extends AppCompatActivity {
         optionsLayout.removeAllViewsInLayout();
         if (storyRunner.hasEnded()) {
             optionsLayout.addView(endButton());
-        }
-        else {
+        } else {
             final List<Option> options = storyRunner.currentOptions();
 
             for (Option option : options) {
@@ -110,7 +120,7 @@ public class StoryActivity extends AppCompatActivity {
             final InputStream inputStream = getAssets().open(fileName);
             final Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
             final String string = scanner.hasNext() ? scanner.next() : null;
-            inputStream.close();
+            scanner.close();
             return string;
         } catch (IOException e) {
             Log.e(TAG, "Error reading file " + fileName);

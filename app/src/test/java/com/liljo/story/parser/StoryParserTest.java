@@ -1,5 +1,6 @@
 package com.liljo.story.parser;
 
+import com.liljo.story.exception.StoryParseException;
 import com.liljo.story.model.Scene;
 import com.liljo.story.model.Story;
 
@@ -8,6 +9,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.fail;
 
 public class StoryParserTest {
 
@@ -19,7 +21,12 @@ public class StoryParserTest {
         String storyString = ":introduction\n" +
                 ";";
 
-        Story story = storyParser.parse(storyString);
+        Story story = null;
+        try {
+            story = storyParser.parse(storyString);
+        } catch (StoryParseException e) {
+            fail(e.getMessage());
+        }
 
         assertThat(story, is(notNullValue()));
         assertThat(story.getScene("introduction"), is(notNullValue()));
@@ -34,7 +41,12 @@ public class StoryParserTest {
                 "\n" +
                 ";";
 
-        Story story = storyParser.parse(storyString);
+        Story story = null;
+        try {
+            story = storyParser.parse(storyString);
+        } catch (StoryParseException e) {
+            fail(e.getMessage());
+        }
 
         assertThat(story, is(notNullValue()));
         assertThat(story.getScene("scene1"), is(notNullValue()));
@@ -55,7 +67,12 @@ public class StoryParserTest {
                 "  - I am fine\r\n" +
                 ";";
 
-        Story story = storyParser.parse(storyString);
+        Story story = null;
+        try {
+            story = storyParser.parse(storyString);
+        } catch (StoryParseException e) {
+            fail(e.getMessage());
+        }
 
         assertThat(story, is(notNullValue()));
 
@@ -79,7 +96,12 @@ public class StoryParserTest {
                 "|Annoyed[scene2]\n" +
                 ";";
 
-        Story story = storyParser.parse(storyString);
+        Story story = null;
+        try {
+            story = storyParser.parse(storyString);
+        } catch (StoryParseException e) {
+            fail(e.getMessage());
+        }
 
         assertThat(story, is(notNullValue()));
 
@@ -109,7 +131,12 @@ public class StoryParserTest {
                 " - The end\n" +
                 ";";
 
-        Story story = storyParser.parse(storyString);
+        Story story = null;
+        try {
+            story = storyParser.parse(storyString);
+        } catch (StoryParseException e) {
+            fail(e.getMessage());
+        }
 
         assertThat(story, is(notNullValue()));
         assertThat(story.getScene("introduction"), is(notNullValue()));

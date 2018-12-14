@@ -1,45 +1,54 @@
 package com.liljo.story.runnner;
 
-import android.util.Log;
-
+import com.liljo.story.exception.StoryRunException;
 import com.liljo.story.model.Option;
+import com.liljo.story.model.Scene;
 import com.liljo.story.model.Story;
 
 import java.util.List;
 
 public class StoryRunner {
 
-    private static final String TAG = "com.liljo...StoryRunner";
-
     private final Story story;
     private String currentScene;
 
-    public StoryRunner(final Story story) {
+    public StoryRunner(final Story story) throws StoryRunException {
         this.story = story;
-        transitionScene("introduction");
+        setCurrentScene("introduction");
     }
 
     public String currentScene() {
         return currentScene;
     }
 
+    public List<String> scenes() {
+        return story.scenes();
+    }
+
     public List<String> currentDisplayText() {
-        return story.getScene(currentScene).getDisplayText();
+        return getCurrentScene().getDisplayText();
     }
 
     public List<Option> currentOptions() {
-        return story.getScene(currentScene).getOptions();
+        return getCurrentScene().getOptions();
     }
 
-    public void transitionScene(String scene) {
-        if (story.getScene(scene) == null) {
-            Log.e(TAG, "No such scene: " + scene);
-            throw new IllegalStateException("No such scene: " + scene);
-        }
-        this.currentScene = scene;
+    public void transitionScene(String scene) throws StoryRunException {
+        setCurrentScene(scene);
     }
 
     public boolean hasEnded() {
-        return story.getScene(currentScene).isEnd();
+        return getCurrentScene().isEnd();
+    }
+
+    private Scene getCurrentScene() {
+        return story.getScene(currentScene);
+    }
+
+    private void setCurrentScene(String scene) throws StoryRunException {
+        if (story.getScene(scene) == null) {
+            throw new StoryRunException("Unknown scene: " + scene);
+        }
+        currentScene = scene;
     }
 }
