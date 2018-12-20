@@ -3,4 +3,8 @@
     <string name="startButton">Begin</string>
     <string name="endButton">Go back to start</string>
     <string name="contentsTitle">Pick an adventure</string>
+    <string name="validateReadButton">Load the story</string>
+    <string name="validateRunButton">Explore the story</string>
+    <string name="readSuccess">Story successfully loaded</string>
+    <string name="readFail">Error in parsing story</string>
 </resources>

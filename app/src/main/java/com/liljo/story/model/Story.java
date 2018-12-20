@@ -1,9 +1,9 @@
 package com.liljo.story.model;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Story {
 
@@ -21,7 +21,7 @@ public class Story {
         return scenes.get(sceneHandle);
     }
 
-    public List<String> scenes() {
-        return new LinkedList<>(scenes.keySet());
+    public Set<String> scenes() {
+        return new HashSet<>(scenes.keySet());
     }
 }

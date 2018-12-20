@@ -21,10 +21,6 @@ public class StoryRunner {
         return currentScene;
     }
 
-    public List<String> scenes() {
-        return story.scenes();
-    }
-
     public List<String> currentDisplayText() {
         return getCurrentScene().getDisplayText();
     }
@@ -50,5 +46,11 @@ public class StoryRunner {
             throw new StoryRunException("Unknown scene: " + scene);
         }
         currentScene = scene;
+    }
+
+    public StoryRunner copyState() throws StoryRunException {
+        final StoryRunner storyRunner = new StoryRunner(this.story);
+        storyRunner.setCurrentScene(this.currentScene);
+        return storyRunner;
     }
 }

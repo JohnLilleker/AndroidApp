@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -42,7 +43,7 @@ public class StoryRunnerTest {
             StoryRunner storyRunner = new StoryRunner(story);
             List<String> strings = storyRunner.currentDisplayText();
 
-            assertThat(strings.size(), is(2));
+            assertThat(strings, hasSize(2));
             assertThat(strings.get(0), is("hiya"));
             assertThat(strings.get(1), is("boom"));
         } catch (StoryRunException e) {
@@ -63,7 +64,7 @@ public class StoryRunnerTest {
             final StoryRunner storyRunner = new StoryRunner(story);
             List<Option> options = storyRunner.currentOptions();
 
-            assertThat(options.size(), is(2));
+            assertThat(options, hasSize(2));
             assertThat(options.get(0).getSceneLink(), is("redDoor"));
             assertThat(options.get(0).getDisplayText(), is("left"));
             assertThat(options.get(1).getSceneLink(), is("blueDoor"));
@@ -109,7 +110,7 @@ public class StoryRunnerTest {
             storyRunner.transitionScene("act2");
 
             List<String> strings = storyRunner.currentDisplayText();
-            assertThat(strings.size(), is(1));
+            assertThat(strings, hasSize(1));
             assertThat(strings.get(0), is("boom"));
         } catch (StoryRunException e) {
             fail(e.getMessage());
@@ -134,7 +135,7 @@ public class StoryRunnerTest {
             storyRunner.transitionScene("act2");
 
             List<Option> strings = storyRunner.currentOptions();
-            assertThat(strings.size(), is(1));
+            assertThat(strings, hasSize(1));
             assertThat(strings.get(0).getDisplayText(), is("boom"));
             assertThat(strings.get(0).getSceneLink(), is("bomb"));
         } catch (StoryRunException e) {

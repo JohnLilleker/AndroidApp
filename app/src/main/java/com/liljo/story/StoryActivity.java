@@ -20,7 +20,8 @@ import com.liljo.story.runnner.StoryRunner;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Scanner;
+
+import static com.liljo.story.util.FileUtil.inputStreamToString;
 
 public class StoryActivity extends AppCompatActivity {
 
@@ -36,7 +37,6 @@ public class StoryActivity extends AppCompatActivity {
 
         try {
             final String fileName = getIntent().getStringExtra(FILE_NAME);
-
             final StoryParser storyParser = new StoryParser();
             final Story story = storyParser.parse(readFileToString(fileName));
             storyRunner = new StoryRunner(story);
@@ -59,7 +59,7 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     public void onEndClick(View view) {
-        final Intent intent = new Intent(this, Splash.class);
+        final Intent intent = new Intent(this, ContentsActivity.class);
         startActivity(intent);
     }
 
@@ -110,7 +110,7 @@ public class StoryActivity extends AppCompatActivity {
         Button button = new Button(this);
         button.setText(text);
         button.setAllCaps(false);
-        button.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
+        button.setBackgroundColor(getResources().getColor(R.color.buttonBackgroundEnabled));
         button.setTextColor(getResources().getColor(R.color.buttonText));
         return button;
     }
@@ -118,10 +118,7 @@ public class StoryActivity extends AppCompatActivity {
     private String readFileToString(String fileName) {
         try {
             final InputStream inputStream = getAssets().open(fileName);
-            final Scanner scanner = new Scanner(inputStream).useDelimiter("\\A");
-            final String string = scanner.hasNext() ? scanner.next() : null;
-            scanner.close();
-            return string;
+            return inputStreamToString(inputStream);
         } catch (IOException e) {
             Log.e(TAG, "Error reading file " + fileName);
             throw new IllegalStateException(e);

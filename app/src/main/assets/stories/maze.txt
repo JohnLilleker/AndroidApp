@@ -1,0 +1,141 @@
+
+// THIS STORY IS A WORK IN PROGRESS DO NOT TOUCH
+
+:introduction
+  - You are in a small-to-medium sized room
+  - In front of you are 2 doors, maybe one of them is the exit?
+  -
+  - You hear a faint beeping and slight weight on your wrist
+  - It's a bracelet with a button and a label:
+  - "If you press this button, you will be incinerated by a plasma discharge"
+  -
+  - Well, it's one way out I guess...
+  -
+  | Press the button [plasma-suicide]
+;
+
+
+
+:exit
+  - You pull the door open, and feel a breeze, sunlight, and actual pollution
+  -
+  -
+  - FREEDOM!!!!!!!!
+  -
+  -
+  - You can't even remember how the heck you ended up in there in the first place, something to do with goblins...
+
+  // Break here, you turn and notice the dor is still there, wide open
+  // | close it -> You win!
+  // | slam it -> It blast you to atoms
+  // | Kick the bastard -> Drags you into a new death scene
+
+  -
+  - That doesn't even matter now, you have your life back and can stop playing this game
+  -
+  - Well, why are you still staring at this screen? Haven't you got better things to do?
+  -
+  - The End
+  -
+;
+
+:plasma-suicide
+  - You press the button
+  - Nothing immediately seems to be happening
+  - Suddenly, your wrist starts to warm up a little...
+  -
+  - There is a searing heat coming from within your soul and then...
+  -
+  - The atoms that make up your very existence decide they are no longer friends and scatter in the winds
+  -
+  - The End
+;
+
+// - room outside hear children playing, go inside 2 girls 1 boy, they are vampires who end you in seconds
+//         - a forest, freedom? not quite since you are surrounded by unearthly demons who remove your body
+//         - you come face to face with (an orc?). knocks you down CHOICE
+//           - grab a sturdy stick - The baddie smites you
+//           - grab a rock - turns out to be a lizard who shouts "DE FOOK DA DOIN?!" before "burrowing into your right eye socket and drop kicking your cerebellum"
+//         - A room of darkness, you just stand there, it grabs you, pull you in and tears you apart
+//         - "You cautiously open the door, mindful there could be anything behind it. As it swings open you see nothing, then everything reveals itself at once. Your mind is overcome with the sights before you as your sanity decides to move out"
+//         - A road... just behind the door... you step out, turn around and a lilac Mini Cooper hits you at 95mph. THE END
+//         - You open the door and are sucked out into the oblivion of space
+//         - [I like this one] You appear to be in a maze of some form. There are yellow circles floating in the air. A strange sound comes from round the corner
+//            A yellow monster composed only of a mouth is devouring the circles and is heading right for you. You sprint in the opposite direction
+//            but hit a junction
+//              Left -> A red dome shaped monster appears and takes your soul
+//              right -> you hear the yellow monster gaining, hit a corner and rebound off a slightly larger circle. You grab it, turn and come face-to-mouth with the beast
+//                 It regards you curiously, then bites you in half
+//         - You are surrounded by snow on a cliff edge, as you look out you see a large colony of penguins
+//           A sound from behind startles you and you fall
+//           The snow makes it safe, but not pleasant
+//           You stand up to find yourself surrounded by the aforementioned penguins
+//           They look at you with wide-eyed curiosity, then pounce on you, stripping the flesh from your body
+//           I never said these were earth penguins
+//         - After escape, you can either
+//           - close the last door [win! keep the current thread of the win message from maze]
+//           - slam the last door [blasts you to oblivion]
+//           - kick the last door
+//             - in a corridor, lights all the way down
+//             - the ones at the end start going out...
+//               - Run (you stumble and are caught you death is swift, but not painless)
+//               - freeze (it hits you and dissolves the flesh off you)
+//               - press the button (the darkness stops, then retreats. You laugh then are incinerated)
+
+:death-by-squirrel
+  - You open the door carefully, not quite trusting what this "game" may throw at you
+  - But you are completely unprepared for the sight of a small red squirrel on a wooden table in what appears to be a log cabin
+  -
+  - It looks up at you, and stares into your very soul
+  - You feel yourself drawn towards the squirrel, powerless under it's gaze
+  - You find yourself walking towards it, completely under it's command
+  -
+  - You hear a voice inside your head, a deep, booming voice...
+  -
+  - "You're mine now, bitch"
+  -
+  - The squirrel is now your master and you live the rest of your days enslaved to a rodent
+  -
+  - The End
+  -
+;
+
+:death-by-sneeze
+  - The door swings open soundlessly as you cautiously enter
+  - You see nothing except a cord dangling from the ceiling, the end appears luminous
+  - You pull it, maybe it will activate some light?
+  -
+  - A powder immediately falls around you, you feel it dissolving into your very cells
+  -
+  - You feel an urge to sneeze...
+  -
+  -
+  - You sneeze
+  -
+  - Your body forgets it is supposed to be one organism and everything flies in different directions
+  -
+  - The End
+  -
+;
+
+:death-by-plastic
+  - You are partially blinded by the harsh light flooding the room
+  - As your eyes get used to the brightness, you notice a box of small plastic bricks and some instructions
+  - Your inner child starts doing back-flips as you start building whatever the model is supposed to be
+  -
+  - 3 hours in and half-way through, you notice a vital piece is missing
+  - The structure you have so far is unidentifiable as anything, and the instructions don't have a picture on the front...
+  -
+  - You think "OK, maybe I can look at the back and see what it is"
+  -
+  - As you turn through the pages, you notice the last quarter of the instructions have been removed
+  - The last image looks like nothing at all
+  -
+  - You realise you have spent 3 hours wasting your time playing with plastic
+  - You look up at a clock on the wall, and then realise instead of 3 hours you had spent 3 days doing this shit
+  -
+  - Your mind snaps like a dry twig and you become a vegetable
+  -
+  - The End
+  -
+;
